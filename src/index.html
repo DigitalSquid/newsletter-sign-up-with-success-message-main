@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+  </head>
+  <body class="font-roboto bg-charcoalGrey text-darkSlateGrey box-content">
+    <div
+      class="lg:flex mx-auto lg:mt-24 lg:rounded-3xl bg-white max-w-[375px] lg:max-w-[930px]"
+    >
+      <section id="subscription-form" class="lg:flex lg:flex-1">
+        <picture class="lg:flex-none lg:order-last lg:p-6">
+          <source
+            srcset="../assets/images/illustration-sign-up-desktop.svg"
+            media="(min-width: 1024px)"
+          />
+          <img
+            src="../assets/images/illustration-sign-up-mobile.svg"
+            alt="Illustration"
+          />
+        </picture>
+        <div class="lg:flex-1">
+          <div class="p-6 lg:px-14 lg:py-16">
+            <h1
+              class="text-title lg:text-5xl font-bold mt-2 lg:mt-8 tracking-wide"
+            >
+              Stay updated!
+            </h1>
+            <p class="mt-6 mb-4">
+              Join 60,000+ product managers receiving monthly updates on:
+            </p>
+            <!-- Tailwind doesn't seem to let me add the correct spacing for list-images so this is an unfortunate work around -->
+            <ul class="list-none mt-6">
+              <li class="flex mt-2">
+                <img
+                  src="../assets/images/icon-list.svg"
+                  class="self-start pt-0.5 pr-4"
+                />
+                <span>Product discovery and building what matters</span>
+              </li>
+              <li class="flex mt-2">
+                <img
+                  src="../assets/images/icon-list.svg"
+                  class="self-start pt-0.5 pr-4"
+                />
+                <span>Measuring to ensure updates are a success</span>
+              </li>
+              <li class="flex mt-2">
+                <img
+                  src="../assets/images/icon-list.svg"
+                  class="self-start pt-0.5 pr-4"
+                />
+                <span>And much more!</span>
+              </li>
+            </ul>
+            <form class="mt-10" novalidate>
+              <div class="flex">
+                <label class="text-xs font-bold flex-1">Email address</label>
+                <label
+                  class="text-xs text-red-400 text-right font-bold flex-1 transition-all ease-in duration-200 hidden-element"
+                  id="error-msg"
+                  >Valid email required</label
+                >
+              </div>
+              <input
+                type="email"
+                id="email-address"
+                placeholder="email@company.com"
+                class="border border-grey rounded-lg outline-none px-5 py-3 mt-2 w-full transition-all ease-in duration-200"
+              />
+              <button
+                type="button"
+                class="mt-5 p-4 bg-darkSlateGrey text-white text-sm font-bold rounded-lg text-center w-full hover:bg-gradient-to-r from-pinkish to-orange transition-all ease-in duration-200"
+                onclick="formSubmission()"
+              >
+                Subscribe to monthly newsletter
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section
+      class="bg-white h-screen lg:h-auto p-6 pt-40 lg:py-12 lg:px-12 lg:rounded-3xl hidden-element max-w-[375px] lg:max-w-[500px] mx-auto relative"
+      id="subscription-confirmation"
+    >
+      <img src="../assets/images/icon-success.svg" alt="Success" />
+      <h1 class="text-title font-bold mt-8 leading-none tracking-wide">
+        Thanks for subscribing!
+      </h1>
+      <p class="mt-6">
+        A confirmation email has been sent to
+        <strong>ash@loremcompany.com</strong>. Please open it and click ther
+        button inside to confirm your subscription
+      </p>
+      <div class="w-full absolute lg:static bottom-0 left-0 p-6 lg:p-0 lg:mt-6">
+        <button
+          type="button"
+          class="mt-5 p-3 bg-darkSlateGrey text-white rounded-lg text-center w-full hover:bg-gradient-to-r from-pinkish to-orange transition-all ease-in duration-200"
+          onclick="dismissConfirmation()"
+        >
+          Dismiss message
+        </button>
+      </div>
+    </section>
+    <script>
+      const confirmation = document.getElementById('subscription-confirmation');
+      const form = document.getElementById('subscription-form');
+      const errorMsg = document.getElementById('error-msg');
+
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+
+      function formSubmission() {
+        const email = document.getElementById('email-address').value;
+        const emailAddress = document.getElementById('email-address');
+
+        if (validateEmail(email)) {
+          form.classList.add('hidden-element');
+          confirmation.classList.remove('hidden-element');
+          errorMsg.classList.add('hidden-element');
+          emailAddress.classList.remove('input-invalid');
+        } else {
+          errorMsg.classList.remove('hidden-element');
+          emailAddress.classList.add('input-invalid');
+        }
+      }
+
+      function dismissConfirmation() {
+        confirmation.classList.add('hidden-element');
+        form.classList.remove('hidden-element');
+      }
+    </script>
+  </body>
+</html>
