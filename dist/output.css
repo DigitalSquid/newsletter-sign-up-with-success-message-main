@@ -534,10 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -559,8 +555,7 @@ video {
   margin-right: auto;
 }
 
-.my-4 {
-  margin-top: 1rem;
+.mb-4 {
   margin-bottom: 1rem;
 }
 
@@ -584,10 +579,6 @@ video {
   margin-top: 2rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .box-content {
   box-sizing: content-box;
 }
@@ -602,14 +593,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.max-w-sm {
-  max-width: 24rem;
-}
-
-.max-w-\[275px\] {
-  max-width: 275px;
 }
 
 .max-w-\[375px\] {
@@ -676,10 +659,6 @@ video {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-0 {
-  padding: 0px;
 }
 
 .px-5 {
@@ -802,12 +781,6 @@ body {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
-@media (min-width: 640px) {
-  .sm\:pt-40 {
-    padding-top: 10rem;
-  }
-}
-
 @media (min-width: 1024px) {
   .lg\:static {
     position: static;
@@ -817,16 +790,12 @@ body {
     order: 9999;
   }
 
-  .lg\:mt-24 {
-    margin-top: 6rem;
+  .lg\:mt-48 {
+    margin-top: 12rem;
   }
 
   .lg\:mt-6 {
     margin-top: 1.5rem;
-  }
-
-  .lg\:mt-4 {
-    margin-top: 1rem;
   }
 
   .lg\:mt-8 {
@@ -861,16 +830,12 @@ body {
     border-radius: 1.5rem;
   }
 
-  .lg\:p-16 {
-    padding: 4rem;
+  .lg\:p-0 {
+    padding: 0px;
   }
 
   .lg\:p-6 {
     padding: 1.5rem;
-  }
-
-  .lg\:p-0 {
-    padding: 0px;
   }
 
   .lg\:px-12 {
@@ -878,14 +843,9 @@ body {
     padding-right: 3rem;
   }
 
-  .lg\:py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
-  .lg\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .lg\:px-14 {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 
   .lg\:py-12 {
@@ -896,25 +856,6 @@ body {
   .lg\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
-  }
-
-  .lg\:px-16 {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-
-  .lg\:py-14 {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .lg\:px-14 {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
-  }
-
-  .lg\:pt-6 {
-    padding-top: 1.5rem;
   }
 
   .lg\:text-5xl {
